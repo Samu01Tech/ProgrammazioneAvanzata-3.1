@@ -26,6 +26,17 @@ class A{
     ~A(){
         cout << "Distruttore A" << endl;
     };
+    //Re: =
+    A& operator =(const A& a){
+        k = a.k; h = a.h;
+        cout << "operator Assegnazione" << endl;
+        return *this; //ritorna istanza classe
+    };
+    A& operator =(int i){
+        k = i;
+        cout << "operator Assegnazione Valore INT" << endl;
+        return *this;
+    };
     //Funzioni friend
     friend ostream& operator <<(ostream& os, const A& a);
 };
@@ -39,6 +50,8 @@ int main() {
     cout << "a1=" << a1 << endl;
     cout << "a2=" << a2 << endl;
     a1 = a2;
+    cout << "a1=" << a1 << endl;
+    a1 = 8;
     cout << "a1=" << a1 << endl;
     return 0;
 }
