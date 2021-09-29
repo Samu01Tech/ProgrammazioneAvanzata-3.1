@@ -52,6 +52,20 @@ class A{
         cout << "operator PiùUguale +=" << endl;
         return *this;
     }
+    //Re: == (k only)
+    bool operator ==(const A& a) const{
+        return k == a.k;
+    }
+    //Re: != (k only)
+    /*
+    bool operator !=(const A& a) const{
+        return k != a.k;
+    }
+    */
+    //Re: != (k only) versione migliore
+    bool operator !=(const A& a) const{
+        return !((*this) == a);
+    }
     //Funzioni friend
     friend ostream& operator <<(ostream& os, const A& a);
 };
@@ -72,5 +86,15 @@ int main() {
     cout << "a3=" << a3 << endl;
     a3 += a2; // a3 = a3 + a2
     cout << "a3=" << a3 << endl;
+    if(a1 == a2){
+        cout << "a1 uguale a2" << endl;
+    } else {
+        cout << "NO UGUALE" << endl;
+    }
+    if(a1 != a2){
+        cout << "a1 diverso a2" << endl;
+    } else {
+        cout << "NO DIVERSO" << endl;
+    }
     return 0;
 }
