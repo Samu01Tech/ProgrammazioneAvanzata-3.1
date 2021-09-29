@@ -74,6 +74,9 @@ ostream& operator <<(ostream& os, const A& a){
     return os << a.k << "-" << a.h;
 }
 
+//Confronto Float
+//(h<a.h+EPSILON && h>a.h-EPSILON)
+
 int main() {
     A a1, a2(1, 3.14), a3;
     cout << "a1=" << a1 << endl;
