@@ -66,6 +66,11 @@ class A{
     bool operator !=(const A& a) const{
         return !((*this) == a);
     }
+    //Re: ++a
+    A& operator ++(){
+        k++;
+        return (*this);
+    }
     //Funzioni friend
     friend ostream& operator <<(ostream& os, const A& a);
 };
@@ -99,5 +104,10 @@ int main() {
     } else {
         cout << "NO DIVERSO" << endl;
     }
+
+    cout << "PRE(++a) a1=" << a1 << endl;
+    ++a1;
+    cout << "POST(++a) a1=" << a1 << endl;
+
     return 0;
 }
