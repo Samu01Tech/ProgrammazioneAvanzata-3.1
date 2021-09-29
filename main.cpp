@@ -29,14 +29,22 @@ class A{
     //Re: =
     A& operator =(const A& a){
         k = a.k; h = a.h;
-        cout << "operator Assegnazione" << endl;
+        cout << "operator Assegnazione =" << endl;
         return *this; //ritorna istanza classe
     };
     A& operator =(int i){
         k = i;
-        cout << "operator Assegnazione Valore INT" << endl;
+        cout << "operator Assegnazione = int" << endl;
         return *this;
     };
+    //Re: +
+    A operator +(const A& a) const{
+        A newa;
+        newa.k = k + a.k;
+        newa.h = h + a.h;
+        cout << "operator Più +" << endl;
+        return newa;
+    }
     //Funzioni friend
     friend ostream& operator <<(ostream& os, const A& a);
 };
@@ -46,12 +54,14 @@ ostream& operator <<(ostream& os, const A& a){
 }
 
 int main() {
-    A a1, a2(1, 3.14);
+    A a1, a2(1, 3.14), a3;
     cout << "a1=" << a1 << endl;
     cout << "a2=" << a2 << endl;
     a1 = a2;
     cout << "a1=" << a1 << endl;
     a1 = 8;
     cout << "a1=" << a1 << endl;
+    a3 = a1 + a2;
+    cout << "a3=" << a3 << endl;
     return 0;
 }
