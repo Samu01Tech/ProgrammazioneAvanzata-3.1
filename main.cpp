@@ -71,6 +71,13 @@ class A{
         k++;
         return (*this);
     }
+    //Re: a++
+    A operator ++(int sonoQuiPerDirtiCheSonoUnaFunzioneDiversa){
+        A tmp;
+        tmp = (*this); //copia istanza corrente
+        k++;
+        return tmp;
+    }
     //Funzioni friend
     friend ostream& operator <<(ostream& os, const A& a);
 };
@@ -104,10 +111,12 @@ int main() {
     } else {
         cout << "NO DIVERSO" << endl;
     }
-
     cout << "PRE(++a) a1=" << a1 << endl;
     ++a1;
     cout << "POST(++a) a1=" << a1 << endl;
 
+    cout << "PRE(a++) a1=" << a1 << endl;
+    a1++;
+    cout << "POST(a++) a1=" << a1 << endl;
     return 0;
 }
