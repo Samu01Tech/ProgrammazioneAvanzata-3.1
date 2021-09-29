@@ -45,6 +45,13 @@ class A{
         cout << "operator Più +" << endl;
         return newa;
     }
+    //Re: +=
+    A& operator +=(const A& a){
+        k += a.k;
+        (*this).h += a.h;//uguale a h += a.h
+        cout << "operator PiùUguale +=" << endl;
+        return *this;
+    }
     //Funzioni friend
     friend ostream& operator <<(ostream& os, const A& a);
 };
@@ -62,6 +69,8 @@ int main() {
     a1 = 8;
     cout << "a1=" << a1 << endl;
     a3 = a1 + a2;
+    cout << "a3=" << a3 << endl;
+    a3 += a2; // a3 = a3 + a2
     cout << "a3=" << a3 << endl;
     return 0;
 }
